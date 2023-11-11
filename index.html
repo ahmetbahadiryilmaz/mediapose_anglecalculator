@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Angle Calculator</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils_3d@0.2/landmark_grid.css" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.6/control_utils.css" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="demo.css" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils_3d@0.2/control_utils_3d.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.6/control_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.3/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose@0.5.1635988162/pose.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<body>
+  <style>
+    .square-box {
+      width: 33%;
+      height: 0;
+      padding-top: 33%;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+     /* display:none*/
+    }
+
+    .landmark-grid-container {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top:0;
+      left:0;
+      background-color: #99999999;
+    }
+    .logo{
+      display:none
+    }
+    .shoutout{
+      display: none;
+    }
+  </style>
+  <div class="container">
+    <video class="input_video"></video>
+    <canvas class="output_canvas" width="1280px" height="720px"></canvas>
+    <div class="loading">
+      <div class="spinner"></div>
+      <div class="message">
+        Loading
+      </div>
+    </div>
+    <a class="abs logo" href="http://www.mediapipe.dev" target="_blank">
+      <div style="display: flex;align-items: center;bottom: 0;right: 10px;">
+        <img class="logo" src="logo_white.png" alt="" style="
+          height: 50px;">
+        <span class="title">MediaPipe</span>
+      </div>
+    </a>
+    <div class="shoutout">
+      <div>
+        <a href="https://solutions.mediapipe.dev/pose">
+          Click here for more info
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="control-panel">
+
+   
+  </div>
+  <div class='square-box'>
+    <div class="landmark-grid-container">
+    </div>
+  </div>
+  <div class="butonlarim" style="display:none">
+    <div class="control-panel-entry control-panel-toggle no hareket1 hareket"><span class="label">Bilatral Control</span><span class="value"></span></div>
+    <div class="control-panel-entry control-panel-toggle no hareket2_r hareket"><span class="label">Unico Control Right</span><span class="value"></span></div>
+    <div class="control-panel-entry control-panel-toggle no hareket2_l hareket"><span class="label">Unico Control Left</span><span class="value"></span></div>
+    <div class="control-panel-entry control-panel-toggle no hareket3 hareket"><span class="label">Bent Control</span><span class="value"></span></div>
+    <div class="control-panel-entry control-panel-toggle no hareket4 hareket"><span class="label">Elevation Control</span><span class="value"></span></div>
+    <a href="indexcvli.html"> <div class="control-panel-entry control-panel-toggle no hareket5 hareket"><span class="label">Rotation Control </span><span class="value"></span></div></a>
+    <div class="control-panel-entry control-panel-toggle no hareket6 hareket"><span class="label">Push Control</span><span class="value"></span></div>
+    <div class="control-panel-entry control-panel-toggle no hareket7 hareket"><span class="label">Multiextension Control</span><span class="value"></span></div>
+    <div class="control-panel-entry control-panel-toggle no hareket8_r hareket"><span class="label">Leg Raise Control Right</span><span class="value"></span></div>
+    <div class="control-panel-entry control-panel-toggle no hareket8_l hareket"><span class="label">Leg Raise Control Left</span><span class="value"></span></div>
+    <div class="control-panel-entry control-panel-toggle no hareket9 hareket"><span class="label">Ipsilateral Control</span><span class="value"></span></div>
+    <div class="control-panel-entry control-panel-toggle no hareket10_r hareket"><span class="label">Core Control Right </span><span class="value"></span></div>
+    <div class="control-panel-entry control-panel-toggle no hareket10_l hareket"><span class="label">Core Control Left</span><span class="value"></span></div>
+    <div class="control-panel-entry control-panel-toggle no hareketbitir"><span class="label">Bitir</span><span class="value"></span></div>
+  
+  </div>
+
+  
+<!-- partial -->
+<script src="./js/unamegenerator.js"></script> 
+ 
+
+
+<script  src="./js/scriptcvsiz.js"></script> 
+
+<style>
+  .controls{
+    display: none;
+  }
+  .done{
+    background:blue !important
+  }
+</style>
+</body>
+</html>
